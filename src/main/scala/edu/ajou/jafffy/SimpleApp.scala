@@ -15,6 +15,12 @@ object SimpleApp {
     val numAs = logData.filter(line => line.contains("a")).count()
     val numBs = logData.filter(line => line.contains("b")).count()
     println(s"Lines with a: $numAs, Lines with b: $numBs")
+
+    logData.persist()
+
+    println(logData.count())
+    println(logData.first())
+
     sc.stop()
   }
 }
