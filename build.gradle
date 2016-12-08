@@ -30,7 +30,7 @@ dependencies {
     testCompile 'org.scalatest:scalatest:3.0.1'
 }
 
-tasks.withType(org.gradle.api.tasks.scala.ScalaCompile) {
+tasks.withType(ScalaCompile) {
     scalaCompileOptions.additionalParameters = ["-feature", "-language:implicitConversions", "-language:reflectiveCalls"]
     scalaCompileOptions.useAnt = false
 }
