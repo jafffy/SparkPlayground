@@ -26,11 +26,13 @@ repositories {
 
 dependencies {
     compile 'org.scala-lang:scala-library:2.11.8'
+    compile 'org.apache.spark:spark-core_2.11:2.0.2'
+    compile 'org.apache.spark:spark-graphx_2.11:2.0.2'
 
     testCompile 'org.scalatest:scalatest:3.0.1'
+    testCompile 'org.scalactic:scalactic:3.0.1'
 }
 
 tasks.withType(ScalaCompile) {
     scalaCompileOptions.additionalParameters = ["-feature", "-language:implicitConversions", "-language:reflectiveCalls"]
-    scalaCompileOptions.useAnt = false
 }
