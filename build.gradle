@@ -1,0 +1,36 @@
+group 'gradleScala'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'scala'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+mainClassName = 'edu.ajou.jafffy.SimpleApp'
+
+sourceSets {
+    main {
+        scala {
+            srcDirs = ['src/main/scala']
+        }
+    }
+    test {
+        scala {
+            srcDirs = ['src/test/scala']
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.11.8'
+
+    testCompile 'org.scalatest:scalatest:3.0.1'
+}
+
+tasks.withType(org.gradle.api.tasks.scala.ScalaCompile) {
+    scalaCompileOptions.additionalParameters = ["-feature", "-language:implicitConversions", "-language:reflectiveCalls"]
+    scalaCompileOptions.useAnt = false
+}
